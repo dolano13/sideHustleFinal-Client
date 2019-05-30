@@ -9,67 +9,68 @@ class AddIdea extends Component {
       desc: "",
       url: ""
     };
-    this.onChangeIdea = this.onChangeIdea.bind(this);
-    this.onChangeDesc = this.onChangeDesc.bind(this);
-    this.onChangeUrl = this.onChangeUrl.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
-  onChangeIdea(e) {
+
+  handleChange(e) {
     this.setState({
-      ideas: e.target.value
+      [e.target.name]: e.target.value
     });
   }
 
-  onChangeDesc(e) {
-    this.setState({
-      desc: e.target.value
-    });
-  }
-  onChangeUrl(e) {
-    this.setState({
-      url: e.target.value
-    });
-  }
   onSubmit(e) {
     e.preventDefault();
     axios
-      .post(`${process.env.MONGO_URI}/after5`, this.state, {
+      .post(`${process.env.REACT_APP_LOCAL_HOST}/api/after5`, this.state, {
         withCredentials: true
       })
       .then(ideasFromServer => {
-        console.log(ideasFromServer);
+        console.log(ideasFromServer.data);
         this.props.addIdea(ideasFromServer.data.newIdea);
+        this.setState({
+          ideas: "",
+          desc: "",
+          url: ""
+        });
       });
   }
   render() {
+    console.log("here are the props in add idea ===== ", this.props);
     return (
       <div>
         <form onSubmit={e => this.onSubmit(e)}>
           <div className="form-group">
-            <label>Idea Title:</label>
+            <label>Title:</label>
+            <br />
             <input
+              name="ideas"
               type="text"
               className="form-control"
               value={this.state.idea}
-              onChange={e => this.onChangeIdea(e)}
+              onChange={e => this.handleChange(e)}
             />
           </div>
           <div className="form-group">
             <label>Description:</label>
+            <br />
             <textarea
+              name="desc"
               type="text"
               className="form-control"
               value={this.state.desc}
-              onChange={e => this.onChangeDesc(e)}
+              onChange={e => this.handleChange(e)}
             />
           </div>
           <div className="form-group">
-            <label>More Info (Useful Links):</label>
+            <label>Extra Help (Useful Links):</label>
+            <br />
             <input
+              name="url"
               type="text"
               className="form-control"
               value={this.state.url}
-              onChange={e => this.onChangeUrl(e)}
+              onChange={e => this.handleChange(e)}
             />
           </div>
           <div className="form-group">

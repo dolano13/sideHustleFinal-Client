@@ -6,7 +6,30 @@ import { Container, Col, Row } from "react-bootstrap";
 class Dashboard extends Component {
   render() {
     return (
-      <div>
+      <div
+        className="mainContainer"
+        // style={{
+        //   backgroundImage: "url(./pics/desk-home-office-indoors-1036808.jpg)",
+        //   backgroundSize: "cover",
+        //   margin: "0%",
+        //   padding: "0%",
+        //   overflow: "hidden"
+        //   // backgroundColor: "red"
+        // }}
+      >
+        <h2 style={{ fontFamily: "Work Sans", textTransform: "uppercase" }}>
+          Dashboard
+        </h2>
+        {/* <div class="mainContainer" style={{
+        backgroundImage: "url(./img/background7.jpg)",
+        backgroundSize: "cover",
+        height: "90vh",
+        width: "100%",
+        margin: "0px",
+        padding: "0px",
+        overflowX: "hidden"
+      }}> */}
+        {/* </div> */}
         <Container>
           <Row>
             <Col sm={6}>
@@ -20,10 +43,9 @@ class Dashboard extends Component {
         <h1>this is the dashboard</h1>
         {/* <List /> */}
         {/* <BusinessPlan /> */}
-        <p> about w their interests</p>
-        <p> saved ideas --> w/notes or ways to prioritize</p>
+
         <p> their own posts (delete/edit feature)</p>
-        <p> calendar or nodemailer??</p>
+
         <p> business plan template</p>
       </div>
     );
