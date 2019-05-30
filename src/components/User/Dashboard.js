@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import List from "./Todos.js/List";
+import BusinessPlan from "./BusinessPlan";
 
 class Dashboard extends Component {
   render() {
@@ -7,6 +8,7 @@ class Dashboard extends Component {
       <div>
         <h1>this is the dashboard</h1>
         <List />
+        <BusinessPlan />
         <p> about w their interests</p>
         <p> saved ideas --> w/notes or ways to prioritize</p>
         <p> their own posts (delete/edit feature)</p>

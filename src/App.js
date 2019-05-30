@@ -7,7 +7,7 @@ import AuthService from "./components/auth/auth-service";
 import Login from "./components/auth/Login";
 import Ideas from "./components/HustleAfter5.js/Ideas";
 import Dash from "./components/User/Dashboard";
-
+import LandingPage from "./components/LandingPage";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -86,6 +86,7 @@ class App extends Component {
           />
         </Switch>
         {/* {this.showRoutes()} */}
+        <LandingPage />
       </div>
     );
   }
