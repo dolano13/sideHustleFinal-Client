@@ -30,6 +30,15 @@ class Login extends Component {
   render() {
     return (
       <div>
+        <div
+          className="login"
+          style={{
+            backgroundImage: "url(./images/blank-composition-data-373076.jpg)",
+            backgroundSize: "cover",
+            width: "100%",
+            overflow: "hidden"
+          }}
+        />
         <form onSubmit={this.handleFormSubmit}>
           <label>Username:</label>
           <input
@@ -38,6 +47,7 @@ class Login extends Component {
             value={this.state.username}
             onChange={e => this.handleChange(e)}
           />
+          <br />
           <label>Password:</label>
           <input
             type="password"
@@ -45,6 +55,7 @@ class Login extends Component {
             value={this.state.password}
             onChange={e => this.handleChange(e)}
           />
+          <br />
           <input type="submit" value="Log In" />
         </form>
         <p>

@@ -1,14 +1,15 @@
 import React, { Component } from "react";
 import axios from "axios";
-
 class Ideas extends Component {
   state = {
     theIdea: []
   };
   componentDidMount() {
-    console.log("calling the idea");
+    console.log("calling the idea", process.env);
     axios
-      .get(`${process.env.MONGO_URI}/theIdea`, { withCredentials: true })
+      .get(`${process.env.REACT_APP_LOCAL_HOST}/api/theIdea`, {
+        withCredentials: true
+      })
       .then(res => {
         console.log("the response ----", res.data);
         return res.data.map((oneIdea, i) => {
@@ -28,7 +29,7 @@ class Ideas extends Component {
         <div>
           <strong>{eachIdea.ideas}</strong>
           <p>{eachIdea.desc}</p>
-          {/* <a href={eachIdea.url} /> */}
+          <p>{eachIdea.url} </p>
         </div>
       );
     });
@@ -40,11 +41,11 @@ class Ideas extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="ideasContainer">
+        <h2 style={{ fontFamily: "Work Sans", textTransform: "uppercase" }}>
+          Simple Ideas, Great Potential
+        </h2>
         {this.showIdea()}
-        <p> also need an ADD idea feature</p>
-        <p> also save to dashboard feature ??</p>
-        <h3>SEARCH</h3>
       </div>
     );
   }

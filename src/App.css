@@ -2,32 +2,30 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+nav {
+  background-color: #ffdf00;
+  height: 5vh;
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 2vh;
+  align-items: center;
+  font-family: "Work Sans", sans-serif;
+  text-transform: uppercase;
+  /* background-image: url("./components/images/blank-composition-data-373076.jpg"); */
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* html {
+  background-image: url("./components/images/blank-composition-data-373076.jpg");
+} */
+.row {
+  display: flex;
+}
+.ideasContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
+}
+.eachIdeas {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

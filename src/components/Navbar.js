@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+
 import AuthService from "./auth/auth-service";
 
-class Navbar extends Component {
+class Nav extends Component {
   constructor(props) {
     super(props);
     this.state = { loggedInUser: null };
@@ -18,33 +19,53 @@ class Navbar extends Component {
       this.props.getTheUser(this.state.loggedInUser);
     });
   };
-  render() {
+
+  showNav() {
     if (this.state.loggedInUser) {
       return (
-        <nav className="nav-style">
-          <h2>Welcome, {this.state.loggedInUser.username}</h2>
-          <Link to="/after5" style={{ textDecoration: "none" }}>
-            Projects
+        <nav>
+          <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+            Welcome, {this.state.loggedInUser.username}
           </Link>
-          <Link to="/" onClick={() => this.logoutUser()}>
+          <Link
+            to="/dashboard"
+            style={{ textDecoration: "none", color: "black" }}
+          >
+            {" "}
+            Dashboard{" "}
+          </Link>
+          <Link to="/after5" style={{ textDecoration: "none", color: "black" }}>
+            After Five
+          </Link>
+          <Link
+            to="/"
+            onClick={() => this.logoutUser()}
+            style={{ textDecoration: "none", color: "black" }}
+          >
             Logout
           </Link>
-          <Link to="/dashboard"> Dashboard </Link>
         </nav>
       );
     } else {
       return (
-        <nav className="nav-style">
-          <Link to="/" style={{ textDecoration: "none" }}>
-            Login
+        <nav>
+          <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+            Side Hustle{" "}
           </Link>
-
-          <Link to="/signup" style={{ textDecoration: "none" }}>
-            Signup
+          <Link to="/signup" style={{ textDecoration: "none", color: "black" }}>
+            Start Hustlin'
+          </Link>
+          <Link to="/login" style={{ textDecoration: "none", color: "black" }}>
+            {" "}
+            Log In{" "}
           </Link>
         </nav>
       );
     }
   }
+
+  render() {
+    return <div>{this.showNav()}</div>;
+  }
 }
-export default Navbar;
+export default Nav;
