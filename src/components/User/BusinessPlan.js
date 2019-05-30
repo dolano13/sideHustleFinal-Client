@@ -17,7 +17,7 @@ class BusinessPlan extends Component {
   onSubmit(e) {
     e.preventDefault();
     console.log("sectionsubmitted");
-    console.log("answers", `${this.state.pt1a}`);
+    console.log("answers", `${this.state}`);
     //make a new object containing input elements and values
     // const newTodo = {
     //   desc: this.state.desc,
@@ -38,12 +38,12 @@ class BusinessPlan extends Component {
   render() {
     return (
       <div>
-        <h1> One Page Business Plan</h1>
+        <h3> One Page Business Plan</h3>
         <p>Answer the following questions as succintly as possible. </p>
         <div className="bizplan">
           <form onSubmit={this.handleSubmit}>
             <div className="pt1">
-              <h6>Overview:</h6>
+              <h5>Overview:</h5>
               <label>
                 What will you sell or what service will you provide?
                 <br />
@@ -69,10 +69,9 @@ class BusinessPlan extends Component {
                   onChange={this.handleChange}
                 />
               </label>
-              <input type="submit" value="Submit" />
             </div>
             <div className="pt2">
-              <h6>Let's Talk Money:</h6>
+              <h5>Let's Talk Money:</h5>
               <label>
                 What will you charge?
                 <textarea
@@ -105,10 +104,9 @@ class BusinessPlan extends Component {
                   onChange={this.handleChange}
                 />
               </label>
-              <input type="submit" value="Submit" />
             </div>
             <div className="pt3">
-              <h6>Hustling</h6>
+              <h5>Hustling</h5>
               <label>
                 How will customers learn about your business?
                 <textarea
@@ -134,10 +132,9 @@ class BusinessPlan extends Component {
                   onChange={this.handleChange}
                 />
               </label>
-              <input type="submit" value="Submit" />
             </div>
             <div className="pt4">
-              <h6>Road to Success</h6>
+              <h5>Road to Success</h5>
               <label>
                 How will you measure your success- think in metrics. Goal number
                 of customers? Annual net income?
@@ -163,10 +160,9 @@ class BusinessPlan extends Component {
                   onChange={this.handleChange}
                 />
               </label>
-              <input type="submit" value="Submit" />
             </div>
             <div className="pt5">
-              <h6>All About the Climb</h6>
+              <h5>All About the Climb</h5>
               <label>
                 What is your biggest concern?
                 <textarea

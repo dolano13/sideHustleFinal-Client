@@ -1,7 +1,9 @@
 .App {
   text-align: center;
 }
-
+body {
+  font-family: "Work Sans", sans-serif;
+}
 nav {
   background-color: #ffdf00;
   height: 5vh;
@@ -28,4 +30,8 @@ nav {
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
+}
+h5 {
+  font-family: "Work Sans", sans-serif;
+  text-transform: uppercase;
 }
