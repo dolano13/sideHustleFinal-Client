@@ -48,14 +48,39 @@ class Add extends Component {
       completed: this.state.completed
     };
     //the link to whatver page you are posting on & new consta as second argument
-    axios.post("db/add", newTodo).then(res => console.log(res.data));
-    this.setState({
-      desc: "",
-      date: "",
-      priority: "",
-      completed: false
-    });
+
+    axios
+      .post(`${process.env.REACT_APP_LOCAL_HOST}/api/dashboard`, this.state, {
+        withCredentials: true
+      })
+      .then(todoList => {
+        console.log(todoList);
+        console.log("all new todo", newTodo);
+        this.props.addTodo(todoList.data.newTodo);
+        this.setState({
+          desc: "",
+          date: "",
+          priority: "",
+          completed: false
+        });
+      });
   }
+  deleteTodo = theTodo => {
+    console.log(
+      "this is the id of the target to be deleted _+_+_++_+_++_+_+_+_+_+_+_++__++_+_+_ ",
+      theTodo
+    );
+
+    axios
+      .post(`${process.env.REACT_APP_LOCAL_HOST}/api/deleteIdea/${theTodo}`, {
+        withCredentials: true
+      })
+      .then(() => {
+        this.todoList();
+      })
+      .catch(err => console.log("Error deleting idea", err));
+  };
+
   render() {
     return (
       <div style={{ marginTop: 20 }}>
@@ -123,6 +148,7 @@ class Add extends Component {
               value="Add To Do"
               className="btn btn-primary"
             />
+            {/* <button onClick={() => this.deleteTodo(theTodo._id)}>Done</button> */}
           </div>
         </form>
       </div>

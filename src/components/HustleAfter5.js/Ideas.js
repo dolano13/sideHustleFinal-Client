@@ -1,9 +1,25 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Add from "./AddIdea";
-import { Container, Col, Row } from "react-bootstrap";
+import {
+  MDBContainer,
+  MDBBtn,
+  MDBModal,
+  MDBModalBody,
+  MDBModalHeader,
+  MDBModalFooter
+} from "mdbreact";
 
 class Ideas extends Component {
+  state = {
+    modal14: false
+  };
+  toggle = nr => () => {
+    let modalNumber = "modal" + nr;
+    this.setState({
+      [modalNumber]: !this.state[modalNumber]
+    });
+  };
   constructor(props) {
     super(props);
     this.state = {
@@ -61,7 +77,13 @@ class Ideas extends Component {
       );
       return this.state.theIdea.map(eachIdea => {
         return (
-          <div>
+          <div
+            style={{
+              border: ".5px solid white",
+              marginBottom: "3vh",
+              padding: "1vh 1vw"
+            }}
+          >
             <h5 style={{ fontFamily: "Work Sans", textTransform: "uppercase" }}>
               {eachIdea.ideas}
             </h5>
@@ -69,7 +91,7 @@ class Ideas extends Component {
               style={{
                 fontFamily: "Work Sans",
                 fontSize: "small",
-                textAlign: "start"
+                textAlign: "justify"
               }}
             >
               {eachIdea.desc}
@@ -79,14 +101,33 @@ class Ideas extends Component {
               style={{
                 fontFamily: "Work Sans",
                 textDecoration: "none",
-                color: "black"
+
+                display: "flex",
+                fontSize: "small",
+                justifyContent: "right",
+                marginTop: "-10px",
+
+                color: "white"
               }}
             >
-              Extra Help
+              Click for more info
             </a>
             <br />
-            <button onClick={() => this.deleteIdea(eachIdea._id)}>
-              Delete Idea
+            <button
+              onClick={() => this.deleteIdea(eachIdea._id)}
+              style={{
+                display: "flex",
+                justifyContent: "right",
+                background: "none",
+                border: "none",
+                marginLeft: "auto",
+                fontFamily: "Work Sans",
+                fontSize: "small",
+                marginTop: "-45px",
+                color: "white"
+              }}
+            >
+              Delete
             </button>
           </div>
         );
@@ -101,33 +142,87 @@ class Ideas extends Component {
   };
   render() {
     return (
-      <div className="ideasContainer">
-        <h2 style={{ fontFamily: "Work Sans", textTransform: "uppercase" }}>
-          Simple Ideas, Great Potential
-        </h2>
-        <Container>
-          <Row>
-            <Col sm>{this.showIdea()}</Col>
-          </Row>
-        </Container>
-        <Add ideas={this.state.theIdea} addIdea={this.addIdea} />
+      <div
+        style={{
+          // backgroundColor: "#E1E0E0",
+          backgroundImage: "url(/pics/desk-home-office-indoors-1036808.jpg)",
+          backgroundSize: "cover",
+
+          backgroundPosition: "center"
+        }}
+      >
+        <div>
+          <div>
+            <h2
+              style={{
+                fontFamily: "Work Sans",
+                textTransform: "uppercase",
+                height: "10vh",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center"
+              }}
+            >
+              Simple Ideas, Great Potential
+            </h2>
+          </div>
+          <div className="formBox" style={{ margin: "0 20%" }}>
+            <MDBContainer>
+              <MDBBtn
+                size="sm"
+                outline
+                color="elegant"
+                onClick={this.toggle(14)}
+                style={{ fontFamily: "Work Sans" }}
+              >
+                Add a Hustle
+              </MDBBtn>
+              <MDBModal
+                isOpen={this.state.modal14}
+                toggle={this.toggle(14)}
+                centered
+              >
+                <MDBModalHeader toggle={this.toggle(14)}>
+                  Add a Hustle
+                </MDBModalHeader>
+                <MDBModalBody>
+                  <Add ideas={this.state.theIdea} addIdea={this.addIdea} />{" "}
+                </MDBModalBody>
+                {/* <MDBModalFooter>
+                  <MDBBtn color="secondary" onClick={this.toggle(14)}>
+                    Close
+                  </MDBBtn> */}
+                {/* <MDBBtn
+                    color="primary"
+                    type="submit"
+                    value="Add a Hustle"
+                    style={{
+                      textTransform: "uppercase",
+                      fontFamily: "Work Sans"
+                    }}
+                  >
+                    Add
+                  </MDBBtn> */}
+                {/* </MDBModalFooter> */}
+              </MDBModal>
+            </MDBContainer>
+
+            {/* <Add ideas={this.state.theIdea} addIdea={this.addIdea} />{" "} */}
+          </div>
+        </div>
+
+        <div
+          style={{
+            height: "100%",
+            backgroundColor: "#ffdf00",
+
+            margin: "0px 15%",
+            padding: "0 5%"
+          }}
+        >
+          {this.showIdea()}
+        </div>
       </div>
-
-      //         </h2>
-      //         <Container>
-      //   <Row>
-      //     <Col sm={4}>sm=8</Col>
-      //     <Col sm={4}>sm=4</Col>
-      //      <Col sm={4}>sm=4</Col>
-
-      //   </Row>
-      //   <Row>
-      //     <Col sm>sm=true</Col>
-      //     <Col sm>sm=true</Col>
-      //     <Col sm>sm=true</Col>
-      //   </Row>
-      // </Container>; */}
-      //         {/* {this.showIdea()} */}
     );
   }
 }

@@ -35,3 +35,7 @@ h5 {
   font-family: "Work Sans", sans-serif;
   text-transform: uppercase;
 }
+
+.thebutton {
+  background-color: #ffdf00 !important;
+}

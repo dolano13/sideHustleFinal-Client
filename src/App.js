@@ -66,20 +66,6 @@ class App extends Component {
     }
   }
 
-  //   {/* <Navbar bg="light" expand="lg">
-  //   <Navbar.Brand href="/">Side Hustle</Navbar.Brand>
-  //   <Navbar.Toggle aria-controls="basic-navbar-nav" />
-  //   <Navbar.Collapse id="basic-navbar-nav">
-  //     <Nav className="mr-auto">
-  //       <Nav.Link href="/">Home</Nav.Link>
-  //       <Nav.Link href="/login">Log In</Nav.Link>
-  //       <NavDropdown title="Start Hustlin" id="basic-nav-dropdown">
-  //         <NavDropdown.Item href="/signup">Sign Up</NavDropdown.Item>
-  //       </NavDropdown>
-  //     </Nav>
-  //   </Navbar.Collapse>
-  // </Navbar> */}
-
   render() {
     this.fetchUser();
     return (
@@ -91,10 +77,9 @@ class App extends Component {
         <Switch>
           <Route exact path="/after5" component={Ideas} />
           <Route exact path="/dashboard" component={Dash} />
-          {/* {this.showJoinUsForm()} */}
+
           {this.showRoutes()}
         </Switch>
-        {/* <LandingPage /> */}
       </div>
     );
   }
