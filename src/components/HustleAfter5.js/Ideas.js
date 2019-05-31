@@ -6,8 +6,7 @@ import {
   MDBBtn,
   MDBModal,
   MDBModalBody,
-  MDBModalHeader,
-  MDBModalFooter
+  MDBModalHeader
 } from "mdbreact";
 
 class Ideas extends Component {

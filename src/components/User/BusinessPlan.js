@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { MDBBtn } from "mdbreact";
 
 class BusinessPlan extends Component {
   constructor(props) {
@@ -37,8 +38,16 @@ class BusinessPlan extends Component {
 
   render() {
     return (
-      <div>
-        <h3> One Page Business Plan</h3>
+      <div
+        style={{
+          height: "100%",
+          backgroundColor: "#ffdf00",
+
+          margin: "0px 15%",
+          padding: "0 5%"
+        }}
+      >
+        {/* <h3> One Page Business Plan</h3> */}
         <p>Answer the following questions as succintly as possible. </p>
         <div className="bizplan">
           <form onSubmit={this.handleSubmit}>
@@ -196,7 +205,10 @@ class BusinessPlan extends Component {
                   onChange={this.handleChange}
                 />
               </label>
-              <input type="submit" value="Submit" />
+              <br />
+              <MDBBtn size="sm" outline color="elegant" onClick={this.toggle}>
+                Submit{" "}
+              </MDBBtn>
             </div>
           </form>
         </div>

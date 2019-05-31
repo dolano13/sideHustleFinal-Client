@@ -105,6 +105,7 @@ class Add extends Component {
             />
           </div>
           <div className="form-group">
+            <label>Priority</label>
             <div className="form-check form-check-inline">
               <input
                 className="form-check-input"
@@ -145,8 +146,13 @@ class Add extends Component {
           <div className="form-group">
             <input
               type="submit"
-              value="Add To Do"
-              className="btn btn-primary"
+              value="Add Item"
+              style={{
+                textTransform: "uppercase",
+                fontFamily: "Work Sans",
+                background: "none",
+                border: "none"
+              }}
             />
             {/* <button onClick={() => this.deleteTodo(theTodo._id)}>Done</button> */}
           </div>

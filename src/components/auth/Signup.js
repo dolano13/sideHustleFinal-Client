@@ -90,7 +90,7 @@ class Signup extends Component {
                   className="form-control"
                 />
                 <div className="text-center mt-4">
-                  <MDBBtn color="warning" type="submit">
+                  <MDBBtn outline color="elegant" type="submit">
                     Sign Up
                   </MDBBtn>
                 </div>

@@ -40,7 +40,6 @@ class AddIdea extends Component {
     console.log("here are the props in add idea ===== ", this.props);
     return (
       <div>
-        {/* <h5> Add a Hustle</h5> */}
         <form onSubmit={e => this.onSubmit(e)}>
           <div className="form-group">
             <label>Title:</label>
@@ -78,12 +77,12 @@ class AddIdea extends Component {
           <div className="form-group">
             <input
               type="submit"
-              value="Add"
+              value="Add Item"
               style={{
                 textTransform: "uppercase",
                 fontFamily: "Work Sans",
                 background: "none",
-                border: "1px solid #ffdf00"
+                border: "none"
               }}
             />
           </div>

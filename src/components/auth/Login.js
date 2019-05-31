@@ -87,7 +87,7 @@ class Login extends Component {
                   className="form-control"
                 />
                 <div className="text-center mt-4">
-                  <MDBBtn color="warning" type="submit">
+                  <MDBBtn outline color="elegant" type="submit">
                     Log in
                   </MDBBtn>
                 </div>
