@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import AuthService from "./auth-service";
-import { Link } from "react-router-dom";
+import { Link, browserHistory } from "react-router-dom";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
 import { MDBContainer, MDBRow, MDBCol, MDBBtn } from "mdbreact";
+import axios from "axios";
+// import { browserHistory } from "react-router";
 
 class Login extends Component {
   constructor(props) {
@@ -15,13 +17,31 @@ class Login extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    const username = this.state.username;
-    const password = this.state.password;
-    this.service
-      .login(username, password)
+    console.log(
+      "the login info --------- ",
+      this.state.username,
+      this.state.password
+    );
+    console.log("this is the props.... .... .... .... ", this.props);
+    var theData = {
+      username: this.state.username,
+      password: this.state.password
+    };
+    // this.service
+    axios
+      .post(`${process.env.REACT_APP_LOCAL_HOST}/login`, theData)
+      // .login(username, password)
       .then(response => {
+        console.log(
+          "the response from the server after log in =========== ",
+          response,
+          "------ the history ----- ",
+          browserHistory
+        );
         this.setState({ username: "", password: "" });
         this.props.getUser(response);
+        // this.props.history.push("/bashboard");
+        // return <Redirect to="/dashboard" />;
       })
       .catch(error => console.log(error));
   };

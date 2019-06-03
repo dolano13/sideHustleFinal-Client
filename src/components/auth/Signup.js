@@ -5,6 +5,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
 import { MDBContainer, MDBRow, MDBCol, MDBBtn } from "mdbreact";
+import axios from "axios";
 
 class Signup extends Component {
   constructor(props) {
@@ -19,9 +20,25 @@ class Signup extends Component {
     const username = this.state.username;
     const password = this.state.password;
 
-    this.service
-      .signup(username, password)
+    console.log(
+      "the state when signing up ============== ",
+      this.state,
+      username,
+      password
+    );
+    var theData = {
+      username: this.state.username,
+      password: this.state.password
+    };
+
+    console.log("the env file when signing up --------------- ", process.env);
+    // this.service
+    //   .signup(username, password)
+    axios
+      .post(`${process.env.REACT_APP_LOCAL_HOST}/signup`, theData)
+      // .post("http://localhost:5000/api/signup", theData)
       .then(response => {
+        console.log("this is the response after signup --------- ", response);
         this.setState({
           username: "",
           password: ""

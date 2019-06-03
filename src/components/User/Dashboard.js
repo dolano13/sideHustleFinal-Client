@@ -8,6 +8,7 @@ import {
   MDBModalBody,
   MDBModalHeader
 } from "mdbreact";
+import Axios from "axios";
 
 class Dashboard extends Component {
   state = {

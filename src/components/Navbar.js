@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-
+import axios from "axios";
 import AuthService from "./auth/auth-service";
 
 class Nav extends Component {
@@ -14,7 +14,8 @@ class Nav extends Component {
   }
   logoutUser = () => {
     console.log("this is the props ----------- ", this.props);
-    this.service.logout().then(() => {
+    // this.service.logout()
+    axios.post(`${process.env.REACT_APP_LOCAL_HOST}/logout`).then(() => {
       this.setState({ loggedInUser: null });
       this.props.getTheUser(this.state.loggedInUser);
     });

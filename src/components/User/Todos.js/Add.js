@@ -44,24 +44,28 @@ class Add extends Component {
     const newTodo = {
       desc: this.state.desc,
       date: this.state.date,
-      priority: this.state.priority,
-      completed: this.state.completed
+      priority: this.state.priority
+      // completed: this.state.completed
     };
+    console.log(
+      "the props before adding todo ..................... ",
+      this.props
+    );
     //the link to whatver page you are posting on & new consta as second argument
 
     axios
-      .post(`${process.env.REACT_APP_LOCAL_HOST}/api/dashboard`, this.state, {
+      .post(`${process.env.REACT_APP_LOCAL_HOST}/add/todo`, this.state, {
         withCredentials: true
       })
       .then(todoList => {
         console.log(todoList);
         console.log("all new todo", newTodo);
-        this.props.addTodo(todoList.data.newTodo);
+        // this.props.addTodo(todoList.data.newTodo);
         this.setState({
           desc: "",
           date: "",
-          priority: "",
-          completed: false
+          priority: ""
+          // completed: false
         });
       });
   }
