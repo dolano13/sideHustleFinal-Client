@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import AuthService from "./auth-service";
-import { Link, browserHistory } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
 import { MDBContainer, MDBRow, MDBCol, MDBBtn } from "mdbreact";
 import axios from "axios";
-// import { browserHistory } from "react-router";
 
 class Login extends Component {
   constructor(props) {
@@ -36,7 +35,7 @@ class Login extends Component {
           "the response from the server after log in =========== ",
           response,
           "------ the history ----- ",
-          browserHistory
+          Redirect
         );
         this.setState({ username: "", password: "" });
         this.props.getUser(response);

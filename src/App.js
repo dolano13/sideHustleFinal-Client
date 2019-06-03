@@ -57,7 +57,12 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/after5" component={Ideas} />
-          <Route exact path="/dashboard" component={Dash} />
+          <Route
+            exact
+            path="/dashboard"
+            component={Dash}
+            theUser={this.state.loggedInUser}
+          />
         </Switch>
       );
     } else {

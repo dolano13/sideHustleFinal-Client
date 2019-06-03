@@ -8,7 +8,7 @@ import {
   MDBModalBody,
   MDBModalHeader
 } from "mdbreact";
-import Axios from "axios";
+import axios from "axios";
 
 class Dashboard extends Component {
   state = {
@@ -21,6 +21,7 @@ class Dashboard extends Component {
     });
   };
   render() {
+    console.log("the props in the dashboard ------ ", this.props);
     return (
       <div
         style={{

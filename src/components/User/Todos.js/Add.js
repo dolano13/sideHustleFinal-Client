@@ -13,8 +13,8 @@ class Add extends Component {
     this.state = {
       desc: "",
       date: "",
-      priority: "",
-      completed: false
+      priority: ""
+      // completed: false
     };
   }
   onChangeDesc(e) {

@@ -22,14 +22,16 @@ class Nav extends Component {
   };
 
   showNav() {
+    console.log("the state..   .........   ", this.state);
     if (this.state.loggedInUser) {
       return (
         <nav>
           <Link to="/" style={{ textDecoration: "none", color: "black" }}>
-            Welcome, {this.state.loggedInUser.username}
+            Welcome, {this.state.loggedInUser.data.username}
           </Link>
           <Link
             to="/dashboard"
+            theUser={this.state.loggedInUser.data}
             style={{ textDecoration: "none", color: "black" }}
           >
             {" "}
