@@ -39,7 +39,7 @@ class Login extends Component {
         );
         this.setState({ username: "", password: "" });
         this.props.getUser(response);
-        // this.props.history.push("/bashboard");
+        this.props.history.push("/dashboard");
         // return <Redirect to="/dashboard" />;
       })
       .catch(error => console.log(error));

@@ -47,8 +47,8 @@ class BusinessPlan extends Component {
           padding: "0 5%"
         }}
       >
-        {/* <h3> One Page Business Plan</h3> */}
-        <p>Answer the following questions as succintly as possible. </p>
+        {/* <h4> One Page Business Plan</h4> */}
+        {/* <p>Answer the following questions as succintly as possible. </p> */}
         <div className="bizplan">
           <form onSubmit={this.handleSubmit}>
             <div className="pt1">

@@ -82,7 +82,8 @@ class AddIdea extends Component {
                 textTransform: "uppercase",
                 fontFamily: "Work Sans",
                 background: "none",
-                border: "none"
+                border: "none",
+                fontSize: "smaller"
               }}
             />
           </div>

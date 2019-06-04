@@ -27,7 +27,13 @@ class App extends Component {
       });
   }
   fetchUser() {
-    if (this.state.loggedInUser === null) {
+    console.log("12345678901234567892345678912345678");
+
+    if (this.state.loggedInUser == null) {
+      console.log(
+        "the user is NULL !!!!!!!!!!!!!!!!!",
+        this.state.loggedInUser
+      );
       this.service
         .loggedin()
         .then(response => {
@@ -53,6 +59,10 @@ class App extends Component {
 
   showRoutes() {
     if (this.state.loggedInUser) {
+      console.log(
+        "the user from the state in the app js =================>>>>> ",
+        this.state.loggedInUser.data
+      );
       return (
         <Switch>
           <Route exact path="/" component={LandingPage} />
@@ -60,8 +70,9 @@ class App extends Component {
           <Route
             exact
             path="/dashboard"
-            component={Dash}
-            theUser={this.state.loggedInUser}
+            render={props => (
+              <Dash {...props} getUser={this.getTheUser} component={Dash} />
+            )}
           />
         </Switch>
       );
@@ -73,15 +84,17 @@ class App extends Component {
           <Route
             exact
             path="/signup"
-            render={() => (
-              <Signup getUser={this.getTheUser} component={Signup} />
+            render={props => (
+              <Signup {...props} getUser={this.getTheUser} component={Signup} />
             )}
           />
           <Route
             exact
             path="/login"
             // component={Login}
-            render={({ history }) => <Login getUser={this.getTheUser} />}
+            render={props => (
+              <Login {...props} getUser={this.getTheUser} component={Login} />
+            )}
           />
         </Switch>
       );

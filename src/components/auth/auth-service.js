@@ -1,9 +1,10 @@
 import axios from "axios";
+import { log } from "handlebars";
 
 class AuthService {
   constructor() {
     let service = axios.create({
-      baseURL: "/api",
+      baseURL: "http://localhost:5000/api",
       withCredentials: true
     });
     this.service = service;
@@ -14,6 +15,7 @@ class AuthService {
       .then(response => response.data);
   };
   loggedin = () => {
+    console.log("checking to see if the user is logged in <<<<<<<<<<<<< ");
     return this.service.get("/loggedin").then(response => response.data);
   };
   login = (username, password) => {

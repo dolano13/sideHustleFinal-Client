@@ -31,7 +31,7 @@ class Nav extends Component {
           </Link>
           <Link
             to="/dashboard"
-            theUser={this.state.loggedInUser.data}
+            // theUser={this.state.loggedInUser.data}
             style={{ textDecoration: "none", color: "black" }}
           >
             {" "}

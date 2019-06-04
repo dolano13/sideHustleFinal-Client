@@ -44,6 +44,7 @@ class Signup extends Component {
           password: ""
         });
         this.props.getUser(response);
+        this.props.history.push("/dashboard");
       })
       .catch(error => console.log(error));
   };
@@ -90,6 +91,7 @@ class Signup extends Component {
                   name="username"
                   value={this.state.username}
                   onChange={e => this.handleChange(e)}
+                  placeholder="ex:Scottstots1"
                 />
                 <br />
                 <label
@@ -105,6 +107,7 @@ class Signup extends Component {
                   onChange={e => this.handleChange(e)}
                   id="defaultFormLoginPasswordEx"
                   className="form-control"
+                  placeholder="Password must be 8 characters or longer"
                 />
                 <div className="text-center mt-4">
                   <MDBBtn outline color="elegant" type="submit">

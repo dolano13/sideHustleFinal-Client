@@ -20,6 +20,11 @@ class Dashboard extends Component {
       modal: !this.state.modal
     });
   };
+
+  componentDidMount() {
+    console.log("the user from dashboard ============ ", this.props.getUser);
+  }
+
   render() {
     console.log("the props in the dashboard ------ ", this.props);
     return (
@@ -63,16 +68,16 @@ class Dashboard extends Component {
               </MDBModalHeader>
               <MDBModalBody>
                 <List />
-              </MDBModalBody>
-              <MDBModalHeader toggle={this.toggle}>To-Do </MDBModalHeader>
-              <MDBModalBody>
-                <h1>THIS IS WHERE U WILL SHOW NEW TO DO ITEMS</h1>
+                {/* </MDBModalBody> */}
+                {/* <MDBModalHeader toggle={this.toggle}>To-Do </MDBModalHeader> */}
+                {/* <MDBModalBody> */}
+                <h3>To-Do</h3>
               </MDBModalBody>
             </MDBModal>
           </MDBContainer>
         </div>
 
-        <h3> One Page Business Plan</h3>
+        <h4 style={{ alignText: "left" }}> One Page Business Plan</h4>
         <BusinessPlan />
       </div>
     );

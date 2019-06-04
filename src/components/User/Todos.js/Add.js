@@ -155,10 +155,15 @@ class Add extends Component {
                 textTransform: "uppercase",
                 fontFamily: "Work Sans",
                 background: "none",
+                fontSize: "smaller",
                 border: "none"
+                // border: "1.5px solid black",
+                // margin: "2px"
               }}
             />
-            {/* <button onClick={() => this.deleteTodo(theTodo._id)}>Done</button> */}
+            {/* <button onClick={() => this.deleteTodo(theTodo._id)}>
+              Completed
+            </button> */}
           </div>
         </form>
       </div>
