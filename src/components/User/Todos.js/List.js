@@ -4,9 +4,13 @@ import Add from "./Add";
 
 class List extends Component {
   render() {
+    console.log(
+      "the props from the dashboard <<<<<<<<<<<<<<<<<<<<<<< ",
+      this.props
+    );
     return (
       <div>
-        <Add />
+        <Add theUser={this.props.theUser.theUser} />
       </div>
     );
   }

@@ -13,7 +13,9 @@ class Add extends Component {
     this.state = {
       desc: "",
       date: "",
-      priority: ""
+      priority: "",
+      theUser: this.props.theUser,
+      theList: this.props.theUser.todoList
       // completed: false
     };
   }
@@ -51,6 +53,11 @@ class Add extends Component {
       "the props before adding todo ..................... ",
       this.props
     );
+
+    // console.log(
+    //   "the props.location.state.theUser >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ",
+    //   this.props.location.state.theUser
+    // );
     //the link to whatver page you are posting on & new consta as second argument
 
     axios
@@ -64,7 +71,8 @@ class Add extends Component {
         this.setState({
           desc: "",
           date: "",
-          priority: ""
+          priority: "",
+          theList: this.props.theUser.todoList
           // completed: false
         });
       });
@@ -86,6 +94,16 @@ class Add extends Component {
   };
 
   render() {
+    console.log(
+      "the props in the add todo form ........................................... ",
+      this.props
+    );
+
+    console.log(
+      "this is the state in the add component ><>><><>><><><><><><><><><><><><><<><",
+      this.state
+    );
+
     return (
       <div style={{ marginTop: 20 }}>
         <h3> Create a New To Do</h3>

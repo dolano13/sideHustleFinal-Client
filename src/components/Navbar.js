@@ -29,14 +29,26 @@ class Nav extends Component {
           <Link to="/" style={{ textDecoration: "none", color: "black" }}>
             Welcome, {this.state.loggedInUser.data.username}
           </Link>
-          <Link
+          {/* <Link
             to="/dashboard"
             // theUser={this.state.loggedInUser.data}
             style={{ textDecoration: "none", color: "black" }}
           >
             {" "}
             Dashboard{" "}
+          </Link> */}
+
+          <Link
+            to={{
+              pathname: `/dashboard`,
+              state: {
+                theUser: this.state.loggedInUser.data
+              }
+            }}
+          >
+            Dashboard
           </Link>
+
           <Link to="/after5" style={{ textDecoration: "none", color: "black" }}>
             After Five
           </Link>

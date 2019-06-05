@@ -12,12 +12,14 @@ import axios from "axios";
 
 class Dashboard extends Component {
   state = {
-    modal: false
+    modal: false,
+    theUser: null
   };
 
   toggle = () => {
     this.setState({
-      modal: !this.state.modal
+      modal: !this.state.modal,
+      theUser: this.props.location.state.theUser
     });
   };
 
@@ -26,7 +28,12 @@ class Dashboard extends Component {
   }
 
   render() {
-    console.log("the props in the dashboard ------ ", this.props);
+    console.log(
+      "the props in the dashboard ------ ",
+      this.props,
+      "the State >>>>>>>>>>>> ",
+      this.state
+    );
     return (
       <div
         style={{
@@ -67,7 +74,7 @@ class Dashboard extends Component {
                 Add Your To-Do{" "}
               </MDBModalHeader>
               <MDBModalBody>
-                <List />
+                <List theUser={this.state} />
                 {/* </MDBModalBody> */}
                 {/* <MDBModalHeader toggle={this.toggle}>To-Do </MDBModalHeader> */}
                 {/* <MDBModalBody> */}
